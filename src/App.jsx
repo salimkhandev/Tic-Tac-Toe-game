@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import 'animate.css';
 
 const TicTacToe = () => {
   const [board, setBoard] = useState(Array(9).fill(null));
@@ -16,7 +17,7 @@ const TicTacToe = () => {
 
   const renderSquare = (index) => (
     <button
-      className="w-20 h-20 bg-gray-200 border-2 border-gray-300 text-4xl font-bold focus:outline-none"
+      className="w-20 h-20 bg-white shadow-md rounded-md text-4xl font-bold text-gray-800 focus:outline-none transition-transform transform hover:scale-105 animate__animated animate__fadeIn"
       onClick={() => handleClick(index)}
     >
       {board[index]}
@@ -30,21 +31,21 @@ const TicTacToe = () => {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-      <h1 className="text-3xl font-bold mb-6">Tic Tac Toe</h1>
-      <div className="grid grid-cols-3 gap-2">
+      <h1 className="text-4xl font-extrabold mb-6 text-blue-600 animate__animated animate__fadeInDown">Tic Tac Toe</h1>
+      <div className="grid grid-cols-3 gap-4">
         {board.map((_, index) => renderSquare(index))}
       </div>
       {winner ? (
-        <div className="mt-6 text-2xl">
-          Winner: <span className="font-bold">{winner}</span>
+        <div className="mt-6 text-2xl text-green-600 animate__animated animate__bounceIn">
+          Winner: <span className="font-extrabold text-3xl">{winner}</span>
         </div>
       ) : (
-        <div className="mt-6 text-2xl">
-          Next Player: <span className="font-bold">{isXNext ? "X" : "O"}</span>
+        <div className="mt-6 text-2xl text-gray-700 animate__animated animate__fadeInUp">
+          Next Player: <span className="font-bold text-3xl text-blue-600">{isXNext ? "X" : "O"}</span>
         </div>
       )}
       <button
-        className="mt-6 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+        className="mt-6 px-6 py-3 bg-blue-500 text-white rounded-full shadow-md hover:bg-blue-600 transition-transform transform hover:scale-105 animate__animated animate__fadeIn"
         onClick={resetGame}
       >
         Reset Game
