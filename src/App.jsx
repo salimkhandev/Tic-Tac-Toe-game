@@ -70,9 +70,6 @@ const calculateWinner = (squares) => {
       return squares[a];
     }
   }
-git add .
-git commit -m "improved"
-git push origin main
 
   return null;
 };
